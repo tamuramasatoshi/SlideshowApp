@@ -38,6 +38,10 @@ class ViewController: UIViewController {
     
     //画像をタップした時に画面遷移
     @IBAction func ontapimage(_ sender: Any) {
+        
+    self.timer.invalidate()
+    self.timer = nil
+        
     performSegue(withIdentifier: "result", sender: nil)
     }
     override func prepare(for segue:UIStoryboardSegue, sender: Any?){
@@ -62,17 +66,21 @@ class ViewController: UIViewController {
     //進むのボタンを押した時
     @IBAction func nextbu(_ sender: Any) {
         
+        
         if imageNumber == 0 {
-            imageview.image = UIImage(named:"IMG_1168.JPG")
             imageNumber = imageNumber + 1
+            imageview.image = UIImage(named:"IMG_1168.JPG")
+            
             
         } else if imageNumber == 1 {
-            imageview.image = UIImage(named:"IMG_1172.JPG")
             imageNumber = imageNumber + 1
+            imageview.image = UIImage(named:"IMG_1172.JPG")
+          
             
         } else if imageNumber == 2 {
-            imageview.image = UIImage(named:"IMG_1165.JPG")
             imageNumber = 0
+            imageview.image = UIImage(named:"IMG_1165.JPG")
+         
         }
         
     }
@@ -82,16 +90,19 @@ class ViewController: UIViewController {
         
         
         if imageNumber == 0 {
-            imageview.image = UIImage(named:"IMG_1168.JPG")
             imageNumber = 2
-            
-        } else if imageNumber == 1 {
             imageview.image = UIImage(named:"IMG_1172.JPG")
-            imageNumber = 0
+            
             
         } else if imageNumber == 2 {
-            imageview.image = UIImage(named:"IMG_1165.JPG")
             imageNumber = 1
+            imageview.image = UIImage(named:"IMG_1168.JPG")
+           
+            
+        } else if imageNumber == 1 {
+            imageNumber = 0
+            imageview.image = UIImage(named:"IMG_1165.JPG")
+          
         }
         
     }

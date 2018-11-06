@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var nextbu: UIButton!
     @IBOutlet weak var back: UIButton!
     
-       
+    
     var timer : Timer!
     var image0 : UIImage!
     var zoomimage :UIImage!
@@ -39,12 +39,15 @@ class ViewController: UIViewController {
     //画像をタップした時に画面遷移
     @IBAction func ontapimage(_ sender: Any) {
         
-    self.timer.invalidate()
-    self.timer = nil
-        
-    performSegue(withIdentifier: "result", sender: nil)
+        performSegue(withIdentifier: "result", sender: nil)
     }
+    
     override func prepare(for segue:UIStoryboardSegue, sender: Any?){
+        
+        self.timer.invalidate()
+        self.timer = nil
+        nextbu.isEnabled = true
+        back.isEnabled = true
         
         let zoomimagecontroller : ZoomViewController = segue.destination as! ZoomViewController
         
@@ -53,13 +56,12 @@ class ViewController: UIViewController {
         image0 = imageview.image
         
     }
-
+    
     //遷移先画面に戻る
     
     @IBAction func unwind( _ segue: UIStoryboardSegue) {
-    
-    
-            imageview.image = image0
+        
+        imageview.image = image0
         
     }
     
@@ -75,12 +77,12 @@ class ViewController: UIViewController {
         } else if imageNumber == 1 {
             imageNumber = imageNumber + 1
             imageview.image = UIImage(named:"IMG_1172.JPG")
-          
+            
             
         } else if imageNumber == 2 {
             imageNumber = 0
             imageview.image = UIImage(named:"IMG_1165.JPG")
-         
+            
         }
         
     }
@@ -97,12 +99,12 @@ class ViewController: UIViewController {
         } else if imageNumber == 2 {
             imageNumber = 1
             imageview.image = UIImage(named:"IMG_1168.JPG")
-           
+            
             
         } else if imageNumber == 1 {
             imageNumber = 0
             imageview.image = UIImage(named:"IMG_1165.JPG")
-          
+            
         }
         
     }

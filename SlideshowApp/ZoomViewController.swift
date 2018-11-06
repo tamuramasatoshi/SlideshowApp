@@ -10,13 +10,17 @@ import UIKit
 
 class ZoomViewController: UIViewController {
 
+    var image0 :UIImage!
     
  @IBOutlet weak var zoomimage: UIImageView!
-    
+   
+ //画面遷移後の画像読み込み
    override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    
+    zoomimage.image = image0
+    
+    // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -24,7 +28,8 @@ class ZoomViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    
+    
     /*
     // MARK: - Navigation
 

@@ -17,6 +17,9 @@ class ViewController: UIViewController {
     
        
     var timer : Timer!
+    var image0 : UIImage!
+    var zoomimage :UIImage!
+    var  imageNumber = 0
     
     override func viewDidLoad() {
         
@@ -35,15 +38,27 @@ class ViewController: UIViewController {
     
     //画像をタップした時に画面遷移
     @IBAction func ontapimage(_ sender: Any) {
-    
-        performSegue(withIdentifier: "result", sender: nil)
+    performSegue(withIdentifier: "result", sender: nil)
+    }
+    override func prepare(for segue:UIStoryboardSegue, sender: Any?){
         
+        let zoomimagecontroller : ZoomViewController = segue.destination as! ZoomViewController
         
-       // let zoomimage.image = imageview.image
+        zoomimagecontroller.image0 = imageview.image
+        
+        image0 = imageview.image
         
     }
-   
-    var  imageNumber = 0
+
+    //遷移先画面に戻る
+    
+    @IBAction func unwind( _ segue: UIStoryboardSegue) {
+    
+    
+            imageview.image = image0
+        
+    }
+    
     //進むのボタンを押した時
     @IBAction func nextbu(_ sender: Any) {
         

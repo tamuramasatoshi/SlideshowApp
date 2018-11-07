@@ -44,8 +44,11 @@ class ViewController: UIViewController {
     
     override func prepare(for segue:UIStoryboardSegue, sender: Any?){
         
+        if self.timer != nil {
+        
         self.timer.invalidate()
         self.timer = nil
+        }
         nextbu.isEnabled = true
         back.isEnabled = true
         
